@@ -1,0 +1,224 @@
+/* Custom Styles for Added Features */
+
+/* =========================================
+   SESSION CARDS EXPANSION
+   ========================================= */
+
+.session-hidden-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    padding: 0 1.5rem;
+}
+
+.session-hidden-content.open {
+    max-height: 500px;
+    padding-bottom: 1.5rem;
+}
+
+.toggle-session-btn {
+    cursor: pointer;
+    margin-top: 1rem;
+    color: #068075;
+    /* Primary Green */
+    font-weight: bold;
+    background: none;
+    border: none;
+    text-decoration: underline;
+    display: inline-block;
+    padding-bottom: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+
+.toggle-session-btn:hover {
+    color: #1d8b7f;
+}
+
+/* Override Fixed Height and Overflow for Sessions Page */
+/* Override Fixed Height and Overflow for Sessions Page */
+.focused-sessions .sessions-single {
+    height: auto !important;
+    min-height: 450px;
+    align-items: flex-start;
+    /* Align content to top so it expands downwards naturally */
+}
+
+.focused-sessions .sessions-single-inner {
+    overflow: visible !important;
+    height: auto !important;
+    justify-content: flex-start;
+    gap: 20px;
+    /* Add some spacing between elements */
+}
+
+.focused-sessions .sessions-cart-title-wrapper {
+    margin-bottom: 0;
+    /* Remove default huge margins if any */
+}
+
+.focused-sessions .sessions-cart-details {
+    margin-bottom: 1rem;
+}
+
+/* Fix for Sessions Hover Effect on sessions.html */
+.sessions-single:hover .sessions-single-img-wrap {
+    opacity: 1 !important;
+    transition: opacity 0.3s ease;
+}
+
+.sessions-single-img-wrap {
+    transition: opacity 0.3s ease;
+}
+
+/* =========================================
+   INTERACTIVE SESSIONS CARDS
+   ========================================= */
+
+.sessions-single {
+    cursor: pointer;
+    transition: all 0.4s ease;
+    height: auto !important;
+    /* Allow expansion */
+    min-height: 400px;
+    /* maintain base height */
+    display: flex;
+    flex-direction: column;
+}
+
+.sessions-single-inner {
+    z-index: 2;
+    position: relative;
+    width: 100%;
+}
+
+.session-hidden-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, margin-top 0.4s ease;
+    margin-top: 0;
+    /* Ensure text is readable */
+    color: #333;
+    /* Darker text for readability if needed, or inherit */
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.sessions-single.active .session-hidden-content {
+    max-height: 600px;
+    /* Sufficient height for content */
+    opacity: 1;
+    margin-top: 1.5rem;
+}
+
+/* Optional: Slight lift or shadow enhancement on active */
+.sessions-single.active {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================
+   ABOUT US PAGE SCROLL IMAGE FIXES
+   ========================================= */
+
+/* Fix 1: Image Size */
+.about-us-img-tecker-img {
+    height: 300px !important;
+    /* Reduced height as requested */
+    width: auto !important;
+    object-fit: cover !important;
+    max-width: none !important;
+    /* Prevent squashing */
+}
+
+/* Fix 2: Animation Speed */
+/* Define the keyframes for the scrolling animation */
+@keyframes ticker-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Slow down the scrolling animation and apply keyframes */
+.about-us-img-tecker-inner {
+    animation-name: ticker-scroll !important;
+    animation-duration: 120s !important;
+    animation-timing-function: linear !important;
+    animation-iteration-count: infinite !important;
+}
+
+/* =========================================
+   FULL WIDTH SESSIONS SECTION
+   ========================================= */
+
+/* Ensure the section wrapper takes full width */
+.section.focused-sessions .sessions-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Configure the grid as a flex container */
+.section.focused-sessions .sessions-grid {
+    display: flex !important;
+    width: 100% !important;
+    flex-wrap: wrap !important;
+    justify-content: center;
+    gap: 0 !important;
+    /* seamless look, or adjust if spacing favored */
+}
+
+/* Style individual cards to share width */
+.section.focused-sessions .sessions-single {
+    flex: 1 !important;
+    /* Distribute equal width */
+    max-width: none !important;
+    width: 33.33% !important;
+    /* Force 1/3 width on desktop */
+    min-width: 300px;
+    /* Minimum width before wrapping/stacking */
+    border-radius: 0 !important;
+    /* Optional: squared edges for full width look */
+    margin: 0 !important;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 991px) {
+    .section.focused-sessions .sessions-single {
+        width: 100% !important;
+        flex: none !important;
+    }
+}
+
+/* =========================================
+   ABOUT US STATIC IMAGE
+   ========================================= */
+
+.about-us-static-inner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.static-approach-image {
+    width: 95%;
+    /* Occupy almost full screen */
+    max-width: none;
+    /* Remove 900px limit */
+    height: auto;
+    border-radius: 20px;
+    /* Consistent with other rounded elements */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    object-fit: cover;
+    margin: 0 auto;
+    /* Enhance centering if needed */
+    display: block;
+}
