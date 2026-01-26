@@ -470,6 +470,97 @@
 }
 
 /* =========================================
+   FAQ MOBILE FIXES
+   ========================================= */
+@media screen and (max-width: 479px) {
+    /* Hide the original desktop tab content pane */
+    .faq-tab-content {
+        display: none !important;
+    }
+    
+    /* Style the new mobile accordion answers */
+.mobile-faq-answer {
+    display: none; /* Hidden by default */
+    padding: 10px 20px 20px 20px; /* Reduced top padding */
+    background-color: var(--spring-wood); /* Match site bg or white */
+    border-bottom: 1px solid rgba(0, 69, 74, 0.1);
+    margin-bottom: 10px;
+    color: var(--charcoal-grey);
+}
+
+/* Force opacity to 1 for children of mobile answer */
+.mobile-faq-answer * {
+    opacity: 1 !important;
+}
+
+/* Specific fix to reduce space for inner titles if needed */
+.mobile-faq-answer .faq-tab-pane-single-title {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+.mobile-faq-answer.open {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+    
+    /* Adjust links to look like accordion headers */
+    .faq-link {
+        width: 100%;
+        margin-bottom: 0 !important; /* Remove gap so answer sits tight */
+        border-bottom: 1px solid rgba(0, 69, 74, 0.1);
+    }
+    
+    /* Rotate icon when active */
+    .faq-link.mobile-active .circle {
+        transform: rotate(45deg);
+        transition: transform 0.3s ease;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   REDUCE FOCUSED SESSIONS HEIGHT
+   ========================================= */
+.section.focused-sessions {
+    padding-top: 60px !important;
+    padding-bottom: 0px !important; /* NO bottom padding */
+    min-height: auto !important;
+    height: auto !important;
+    overflow: hidden !important; /* Ensure nothing sticks out */
+}
+
+.section.focused-sessions .sessions-wrapper {
+    background-image: url('../images/Hero-Bg.webp');
+    background-color: var(--spring-wood) !important;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
+    padding-top: 40px;
+    padding-bottom: 0px !important; /* NO bottom padding inside wrapper */
+    margin-bottom: 0px !important; /* NO bottom margin */
+}
+
+/* Ensure the container of the cards doesn't add extra space */
+.focused-sessions .w-container,
+.focused-sessions .container {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Add a little negative margin if necessary to pull the next section up, 
+   or just ensure no gap exists */
+.section.our-achievements {
+    margin-top: 0 !important;
+    padding-top: 80px; 
+}
+
+/* =========================================
    HOMEPAGE SESSION CARD OVERRIDES
    ========================================= */
 /* Completely disable hover effects for session cards on homepage */
@@ -477,6 +568,7 @@
     transform: none !important;
     box-shadow: none !important;
     cursor: default !important;
+    background-color: transparent !important; /* Ensure background doesn't change */
 }
 
 .homepage .sessions-single:hover .sessions-single-img-wrap {
@@ -486,6 +578,11 @@
 
 .homepage .sessions-single:hover .sessions-cart-title {
     color: inherit !important;
+}
+
+/* Ensure card background stays transparent/consistent */
+.homepage .sessions-single {
+    background-color: transparent !important;
 }
 
 /* =========================================
