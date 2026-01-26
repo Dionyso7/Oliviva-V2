@@ -1,4 +1,12 @@
-/* Custom Styles for Added Features */
+/* Hide the white strip with cross at the bottom */
+.navigation-close-wrap {
+    display: none !important;
+}
+
+/* Revert the circle color to the original Tacao for the practitioner section */
+.best-life-inner-img {
+    background-color: #C59D5F !important;
+}
 
 /* =========================================
    SESSION CARDS EXPANSION
@@ -11,6 +19,19 @@
     padding: 0 1.5rem;
 }
 
+/* Slider Navigation Adjustments */
+
+.slider-left-button.testimonials,
+.slider-right-button.testimonials {
+    display: none !important;
+}
+
+/* Ensure arrows are on top */
+.slider-left-button, .slider-right-button {
+    z-index: 100 !important;
+    cursor: pointer !important;
+}
+
 .session-hidden-content.open {
     max-height: 500px;
     padding-bottom: 1.5rem;
@@ -19,7 +40,7 @@
 .toggle-session-btn {
     cursor: pointer;
     margin-top: 1rem;
-    color: #068075;
+    color: var(--elf-green);
     /* Primary Green */
     font-weight: bold;
     background: none;
@@ -33,7 +54,7 @@
 
 
 .toggle-session-btn:hover {
-    color: #1d8b7f;
+    color: var(--blue-chill);
 }
 
 /* Override Fixed Height and Overflow for Sessions Page */
@@ -100,10 +121,48 @@
     transition: max-height 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, margin-top 0.4s ease;
     margin-top: 0;
     /* Ensure text is readable */
-    color: #333;
+    color: var(--charcoal-grey);
     /* Darker text for readability if needed, or inherit */
     font-size: 0.95rem;
     line-height: 1.6;
+}
+
+/* =========================================
+   BACKGROUND FOR FOCUSED SESSIONS
+   ========================================= */
+.section.focused-sessions {
+    background-color: var(--tacao) !important;
+    background-image: none !important;
+    padding-bottom: 0 !important; /* Remove bottom padding from main section */
+}
+
+.section.focused-sessions .sessions-wrapper {
+    background-image: url('../images/Hero-Bg.webp');
+    background-color: var(--spring-wood) !important;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
+    padding-top: 40px;
+    padding-bottom: 0 !important; /* Remove padding bottom here too */
+    margin-bottom: 0 !important;
+}
+
+/* Ensure the next section starts cleanly */
+.section.our-achievements {
+    margin-top: 0 !important;
+    padding-top: 80px; /* Give some space to the next section content */
+}
+
+/* =========================================
+   HEADER BACKGROUNDS (MATCH HERO)
+   ========================================= */
+.all-inner-pages-section {
+    background-image: url('../images/Hero-Bg.webp') !important;
+    background-color: var(--spring-wood) !important;
+    background-position: 50% !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
 }
 
 .sessions-single.active .session-hidden-content {
@@ -123,6 +182,10 @@
    ========================================= */
 
 /* Fix 1: Image Size */
+.section.about-us {
+    overflow: visible !important;
+}
+
 .about-us-img-tecker-img {
     height: 300px !important;
     /* Reduced height as requested */
@@ -169,31 +232,54 @@
 .section.focused-sessions .sessions-grid {
     display: flex !important;
     width: 100% !important;
-    flex-wrap: wrap !important;
+    flex-wrap: nowrap !important; /* Force single line on desktop */
     justify-content: center;
     gap: 0 !important;
-    /* seamless look, or adjust if spacing favored */
+    align-items: stretch; /* Make sure they have same height */
 }
 
 /* Style individual cards to share width */
 .section.focused-sessions .sessions-single {
-    flex: 1 !important;
-    /* Distribute equal width */
+    flex: 1 1 0% !important;
+    /* Grow to fill space, shrink if needed, start from 0 */
     max-width: none !important;
-    width: 33.33% !important;
-    /* Force 1/3 width on desktop */
-    min-width: 300px;
-    /* Minimum width before wrapping/stacking */
+    width: auto !important;
+    /* Allow flex to control width */
+    min-width: 250px;
+    /* Minimum width before wrapping */
     border-radius: 0 !important;
     /* Optional: squared edges for full width look */
     margin: 0 !important;
+    /* Remove margins to fill gap */
+    background-color: transparent !important;
+}
+
+/* Disable hover overlay for these specific cards to keep gold background (HOMEPAGE ONLY) */
+.homepage .section.focused-sessions .sessions-single:hover .sessions-single-img-wrap {
+    opacity: 0 !important;
+}
+
+/* Disable hover overlay for Sessions Page as well */
+.focused-sessions .sessions-single:hover .sessions-single-img-wrap {
+    opacity: 0 !important;
+    display: none !important;
+}
+
+.section.focused-sessions .sessions-single:last-child {
+    border-right: none;
 }
 
 /* Responsive adjustments */
 @media screen and (max-width: 991px) {
+    .section.focused-sessions .sessions-grid {
+        flex-wrap: wrap !important; /* Allow stacking on smaller screens */
+    }
+    
     .section.focused-sessions .sessions-single {
         width: 100% !important;
-        flex: none !important;
+        flex: 0 0 100% !important;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 }
 
@@ -209,17 +295,16 @@
 }
 
 .static-approach-image {
-    width: 95%;
-    /* Occupy almost full screen */
-    max-width: none;
-    /* Remove 900px limit */
+    width: 100vw;
+    /* Force full viewport width */
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    /* Center and pull to edges */
     height: auto;
-    border-radius: 20px;
-    /* Consistent with other rounded elements */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 0;
+    /* Remove rounded corners for full width */
+    box-shadow: none;
     object-fit: cover;
-    margin: 0 auto;
-    /* Enhance centering if needed */
     display: block;
 }
 
@@ -252,7 +337,7 @@
     max-width: 900px;
     margin: 150px auto 60px;
     padding: 40px;
-    background: #fff;
+    background: var(--white);
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
     border-radius: 10px;
     position: relative;
@@ -262,7 +347,7 @@
 .legal-content h1 {
     font-family: 'Prata', serif;
     font-size: 2.5rem;
-    color: #068075;
+    color: var(--elf-green);
     margin-bottom: 2rem;
     text-align: center;
 }
@@ -270,7 +355,7 @@
 .legal-content h2 {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 1.5rem;
-    color: #333;
+    color: var(--charcoal-grey);
     margin-top: 2.5rem;
     margin-bottom: 1rem;
     font-weight: 700;
@@ -280,7 +365,7 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 1rem;
     line-height: 1.8;
-    color: #555;
+    color: var(--charcoal-grey);
     margin-bottom: 1rem;
 }
 
@@ -290,12 +375,12 @@
 }
 
 .legal-content a {
-    color: #068075;
+    color: var(--elf-green);
     text-decoration: underline;
 }
 
 .legal-content a:hover {
-    color: #1d8b7f;
+    color: var(--charcoal-grey);
 }
 
 @media (max-width: 991px) {
@@ -312,5 +397,219 @@
     
     .legal-content h1 {
         font-size: 2rem;
+    }
+}
+
+/* =========================================
+   FAQ SECTION CUSTOMIZATION
+   ========================================= */
+
+/* Force all FAQ links to look like the active one (white background) */
+.section.faq .faq-main .faq-link,
+.section.faq .faq-main .faq-link.aboutbg,
+.section.faq .faq-main .faq-link.w--current,
+.section.faq .faq-main .faq-link.aboutbg.w--current {
+    background-color: var(--white) !important;
+    color: var(--charcoal-grey) !important;
+}
+
+/* =========================================
+   COLOR OVERRIDES
+   ========================================= */
+
+:root {
+    --elf-green: #00454A; /* Force darker teal everywhere */
+    --tacao: #E3C695; /* Replace Tacao with "Or Lumineux" */
+}
+
+/* Footer insert color change */
+.footer-left-content {
+    background-color: var(--elf-green) !important;
+}
+
+/* Force white text in the dark footer insert */
+.footer-left-content,
+.footer-left-content p,
+.footer-left-content a,
+.footer-left-content .footer-logo-discriptions,
+.footer-left-content .contact-icon-text {
+    color: var(--white) !important;
+}
+
+/* Make icons white */
+.footer-left-content .contact-icon,
+.footer-left-content .footer-logo {
+    filter: brightness(0) invert(1);
+}
+
+/* Ensure icons are also white if they are SVGs controlled by color, otherwise text next to them */
+.footer-left-content a:hover {
+    opacity: 0.8;
+}
+
+/* Override Webflow defaults to use the dark teal */
+.w-button {
+    background-color: var(--elf-green) !important;
+}
+
+.w-input:focus,
+.w-select:focus {
+    border-color: var(--elf-green) !important;
+}
+
+/* =========================================
+   CONTACT PAGE OVERRIDES
+   ========================================= */
+/* Remove background from the contact form in "Une rencontre essentielle" section */
+.get-in-touch .contact-us-form-wrapper,
+.get-in-touch .contact-us-form-wrap {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* =========================================
+   HOMEPAGE SESSION CARD OVERRIDES
+   ========================================= */
+/* Completely disable hover effects for session cards on homepage */
+.homepage .sessions-single:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    cursor: default !important;
+}
+
+.homepage .sessions-single:hover .sessions-single-img-wrap {
+    opacity: 0 !important;
+    display: none !important;
+}
+
+.homepage .sessions-single:hover .sessions-cart-title {
+    color: inherit !important;
+}
+
+/* =========================================
+   HERO LOGO INSERT
+   ========================================= */
+/* Ensure wrapper acts as a flex container to push logo to right */
+.best-life-wrapper {
+    display: flex !important;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.hero-logo-insert {
+    margin-left: auto !important; /* Push to the right */
+    margin-right: 0;
+    margin-top: -30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-logo-img {
+    max-width: 300px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* =========================================
+   RESPONSIVE FIXES FOR MOBILE
+   ========================================= */
+@media screen and (max-width: 991px) {
+    /* Fix sessions cards disappearance */
+    .sessions-single {
+        opacity: 1 !important;
+        display: flex !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+    
+    .sessions-single-inner {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* Ensure testimonial slider is visible */
+    .real-voices-slider-single {
+        opacity: 1 !important;
+        display: block !important;
+        visibility: visible !important;
+    }
+    
+    .w-slide {
+        display: block !important; /* Force display for slides */
+    }
+    
+    /* Ensure content inside slides is visible */
+    .real-voices-slider-flex,
+    .testemonial-content-inner, 
+    .testimonoal-details-wrapper,
+    .author-wrapper {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: block !important;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    /* Mobile Layout for Hero Section */
+    .best-life-wrapper {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-top: 20px;
+    }
+
+    /* Main Image (Portrait) - Order 1 */
+    .best-life-flex {
+        order: 1;
+        margin-bottom: 20px;
+        opacity: 1 !important;
+        display: flex !important;
+        visibility: visible !important;
+    }
+
+    /* Satisfaction Badge (100%...) - Order 2 (Above Logo) */
+    .clients-support-wrap {
+        order: 2;
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        margin-left: 0 !important; /* Remove negative margin */
+        margin-bottom: 20px;
+        position: relative !important;
+        z-index: 10;
+        background: transparent !important;
+    }
+
+    /* Ensure inner text is visible */
+    .clients-support-flex,
+    .counter-title-wrap,
+    .counter-title {
+        opacity: 1 !important;
+        visibility: visible !important;
+        color: var(--elf-green) !important; /* Ensure contrast */
+    }
+
+    /* Logo - Order 3 (Below Badge) */
+    .hero-logo-insert {
+        order: 3;
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hero-logo-img {
+        max-width: 200px; /* Slightly smaller on mobile */
+    }
+
+    /* Ensure testimonials are not hidden on very small screens */
+    .real-voices-slider {
+        height: auto !important;
+        min-height: 400px;
     }
 }
