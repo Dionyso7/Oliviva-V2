@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html data-wf-page="6931c685c8f9b64f51f275c9" data-wf-site="6931c684c8f9b64f51f27529" lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Demo Avis - Cards Layout</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/sophrologie-exemple.webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/custom.css" rel="stylesheet" type="text/css">
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <style>
+    body {
+        background-color: #050505; /* Very dark background from screenshot */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .demo-container {
+        display: flex;
+        gap: 24px;
+        padding: 40px;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 1200px;
+    }
+
+    .review-card {
+        background-color: #0f0f0f; /* Dark card background */
+        border: 1px solid #1f1f1f;
+        border-radius: 16px;
+        padding: 32px;
+        width: 340px;
+        color: #fff;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+
+    .stars {
+        color: #FFD700; /* Gold/Yellow */
+        font-size: 14px;
+        display: flex;
+        gap: 4px;
+    }
+
+    .quote-icon {
+        color: #2a2a2a;
+        font-size: 24px;
+    }
+
+    .review-text {
+        color: #a0a0a0;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        flex-grow: 1;
+    }
+
+    .user-profile {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .user-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .user-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .user-name {
+        font-weight: 700;
+        font-size: 16px;
+        color: #fff;
+        margin-bottom: 2px;
+    }
+
+    .user-role {
+        font-size: 13px;
+        color: #666;
+    }
+
+    /* Highlight matching specific text styles from image */
+    .user-role span {
+        color: #666;
+    }
+  </style>
+</head>
+<body>
+
+<div class="demo-container">
+    
+    <!-- Card 1 -->
+    <div class="review-card">
+        <div class="card-header">
+            <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <i class="fa-solid fa-quote-right quote-icon"></i>
+        </div>
+        <div class="review-text">
+            This library has completely transformed how we build our UI components. The attention to detail and smooth animations make our application stand out. Highly recommended!
+        </div>
+        <div class="user-profile">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson" class="user-avatar">
+            <div class="user-info">
+                <div class="user-name">Sarah Johnson</div>
+                <div class="user-role">Product Manager @ Amazun</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="review-card">
+        <div class="card-header">
+            <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i> <!-- Assuming 4.5 or similar from glance, or full -->
+            </div>
+            <i class="fa-solid fa-quote-right quote-icon"></i>
+        </div>
+        <div class="review-text">
+            The components are well documented and easy to customize. The code quality is top-notch and the support is excellent. I'm very happy with my purchase.
+        </div>
+        <div class="user-profile">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Doe" class="user-avatar">
+            <div class="user-info">
+                <div class="user-name">John Doe</div>
+                <div class="user-role">Software Engineer @ Goggle</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="review-card">
+        <div class="card-header">
+            <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <i class="fa-solid fa-quote-right quote-icon"></i>
+        </div>
+        <div class="review-text">
+            The accessibility features and design system consistency are impressive. It's saved us countless hours in development time.
+        </div>
+        <div class="user-profile">
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emily Chen" class="user-avatar">
+            <div class="user-info">
+                <div class="user-name">Emily Chen</div>
+                <div class="user-role">UX Designer @ Microsoft</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -710,3 +710,350 @@
         min-height: 400px;
     }
 }
+
+/* =========================================
+   HEADER OVERRIDES
+   ========================================= */
+.header {
+    background-color: var(--elf-green) !important;
+}
+
+/* Make nav links white so they are visible on dark background */
+.nav-main-link {
+    color: var(--white) !important;
+}
+
+/* =========================================
+   HERO TEXT OVERRIDES
+   ========================================= */
+.counter-title-wrap p.counter-title {
+    /* Ensure the new address text is styled correctly */
+    font-size: 1.1rem !important;
+    line-height: 1.5 !important;
+    font-weight: 500 !important; /* Make it a bit bolder than normal text but less than title */
+    color: var(--charcoal-grey) !important;
+}
+
+/* =========================================
+   NAVBAR BUTTON OVERRIDE
+   ========================================= */
+/* Change "Prendre RDV" button to white background with dark text */
+.secondary-button {
+    background-color: var(--white) !important;
+    color: var(--elf-green) !important;
+}
+
+.secondary-button .button-text {
+    color: var(--elf-green) !important;
+}
+
+/* Invert arrow icon color for white background */
+.secondary-button .dutton-playgon {
+    filter: invert(1) brightness(0);
+}
+
+/* =========================================
+   NAVBAR LOGO GOLD FILTER
+   ========================================= */
+/* Apply gold-like filter to the original logo in navbar */
+.header-logo {
+    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(987%) hue-rotate(357deg) brightness(96%) contrast(90%);
+}
+
+/* =========================================
+   WHY CHOOSE US (ENGAGEMENTS) OVERRIDES
+   ========================================= */
+
+/* Ensure the grid is 3 columns */
+.why-choose-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 20px !important;
+    margin-top: 40px;
+}
+
+/* Make each item a rectangular column */
+.why-choose-single {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 450px !important; /* Rectangular height */
+    overflow: hidden !important;
+    border-radius: 4px !important;
+    background-color: transparent !important; /* Reset background */
+    padding: 0 !important;
+}
+
+/* The image box should fill the background */
+.why-choose-img-box {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1 !important;
+    margin-bottom: 0 !important;
+}
+
+.why-choose-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Add an overlay to improve text readability */
+.why-choose-img-box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45); /* Dark overlay */
+    z-index: 2;
+    transition: background 0.3s ease;
+}
+
+/* Optional: Darker overlay on hover */
+.why-choose-single:hover .why-choose-img-box::after {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* The title box (text + icon) should be on top */
+.why-choose-title-box {
+    position: relative !important;
+    z-index: 3 !important;
+    text-align: center !important;
+    padding: 30px !important;
+    color: white !important;
+    background-color: transparent !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100% !important;
+    width: 100% !important;
+    transition: transform 0.3s ease;
+}
+
+.why-choose-single:hover .why-choose-title-box {
+    transform: translateY(-5px);
+}
+
+/* Style the icon */
+.why-choose-icon {
+    filter: brightness(0) invert(1) !important; /* Make icon white */
+    width: 60px !important;
+    height: auto !important;
+    margin-bottom: 25px !important;
+    opacity: 0.95;
+}
+
+/* Style the title */
+.why-choose-inner-title {
+    color: white !important;
+    font-weight: 700 !important; /* Thick text */
+    font-size: 1.8rem !important;
+    margin-bottom: 15px !important;
+    line-height: 1.3 !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Style the description details */
+.why-choose-inner-details {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 500 !important; /* Slightly thicker */
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    max-width: 90%;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 991px) {
+    .why-choose-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+    
+    .why-choose-single {
+        min-height: 350px !important;
+    }
+}
+
+/* =========================================
+   NEW DARK MODE REVIEWS (INTEGRATION)
+   ========================================= */
+
+/* The Main Section Wrapper */
+.section.real-voices {
+    background-color: #050505 !important;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+/* Reset the slider mask behavior if it was modified before */
+.real-voices .w-slider-mask {
+    /* GRID LAYOUT: The most robust way to force 3 columns ignoring Webflow JS */
+    display: grid !important; 
+    grid-template-columns: 1fr 1fr 1fr !important; /* Exactly 3 equal columns */
+    gap: 30px !important; /* Increased Space between cards */
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important; /* Allow content to be seen */
+    transform: none !important; /* Kill Webflow JS transform */
+    white-space: normal !important;
+    
+    /* Centering logic */
+    justify-content: center !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+}
+
+/* The Card Style */
+.review-card {
+    background-color: #0f0f0f;
+    border: 1px solid #1f1f1f;
+    border-radius: 16px;
+    padding: 32px;
+    width: 100%; /* Adapts to slide width */
+    color: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    height: 100%; /* Fill slide height */
+    min-height: 250px; /* REDUCED: Make cards less tall */
+    margin: 0; /* Remove margin that might cause wrap */
+}
+/* Wrapper to add gap without breaking slider width calc */
+.real-voices .w-slide > div {
+   margin: 0 10px; /* Add horizontal spacing inside the slide */
+   height: 100%;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.stars {
+    color: #FFD700;
+    font-size: 14px;
+    display: flex;
+    gap: 4px;
+}
+
+.quote-icon {
+    color: #2a2a2a;
+    font-size: 24px;
+}
+
+.review-text {
+    color: #a0a0a0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    flex-grow: 1;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    text-align: left !important; /* Override previous center alignment */
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.user-name {
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 2px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.user-role {
+    font-size: 13px;
+    color: #666;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Ensure container inside real-voices section allows full width usage */
+/* MOVED TO BOTTOM TO OVERRIDE */
+.real-voices .w-container, 
+.section.real-voices .container {
+    max-width: 1600px !important; /* Huge width for 3 large cards */
+    width: 98% !important; /* Use full width */
+    margin: 0 auto !important; /* Centered */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Force slides to have a minimum width to ensure landscape/rectangular shape */
+.real-voices .w-slide {
+    width: 100% !important; /* Let Grid handle the width */
+    min-width: 400px !important; /* INCREASED: Make them wider to fill space */
+    max-width: none !important;
+    transform: none !important; /* Kill Webflow JS transform */
+    
+    /* Reset layout properties */
+    display: flex !important; 
+    flex-direction: column !important;
+    height: auto !important;
+    background: transparent !important;
+    margin: 0 !important; /* Grid handles spacing */
+    box-sizing: border-box !important;
+}
+
+@media screen and (max-width: 991px) {
+    .real-voices .w-slide {
+        width: 100% !important;
+    }
+}
+
+.real-voices .real-voices-slider-flex {
+    background-color: transparent !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+.real-voices .real-voices-slider-flex::before {
+    display: none !important;
+}
+
+/* Navigation Arrows - Make White */
+.real-voices .w-slider-arrow-left,
+.real-voices .w-slider-arrow-right {
+    filter: invert(1) brightness(200%);
+    display: flex !important; /* Ensure they are visible */
+}
+
+.real-voices .w-slider-nav-invert > div {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.real-voices .w-slider-nav-invert > div.w-active {
+    background-color: #fff;
+}
