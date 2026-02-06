@@ -74,4 +74,73 @@ document.addEventListener('DOMContentLoaded', function() {
             // But strict prevention on load is the main fix for desktop layout.
         }
     });
+
+    function initReviewsCarousel() {
+        const section = document.querySelector('.section.real-voices');
+        if (!section) return;
+
+        const mask = section.querySelector('.real-voices-slider-wrapper-mask');
+        if (!mask) return;
+
+        // Allow native scrolling by stopping Webflow's touch interference
+        // We capture the event and stop it from bubbling up to Webflow's global listeners
+        const stopWebflowInterference = (e) => {
+            e.stopPropagation();
+        };
+
+        mask.addEventListener('touchstart', stopWebflowInterference, { capture: true, passive: true });
+        mask.addEventListener('touchmove', stopWebflowInterference, { capture: true, passive: true });
+        mask.addEventListener('touchend', stopWebflowInterference, { capture: true, passive: true });
+
+        const prevBtn = section.querySelector('.w-slider-arrow-left');
+        const nextBtn = section.querySelector('.w-slider-arrow-right');
+
+        const getStep = () => {
+            const firstSlide = mask.querySelector('.w-slide');
+            if (!firstSlide) return 0;
+            const rect = firstSlide.getBoundingClientRect();
+            const styles = window.getComputedStyle(mask);
+            const gapValue = styles.columnGap || styles.gap || '0';
+            const gap = Number.parseFloat(gapValue) || 0;
+            return rect.width + gap;
+        };
+
+        const scrollByStep = (direction) => {
+            const step = getStep();
+            if (!step) return;
+            const max = Math.max(0, mask.scrollWidth - mask.clientWidth);
+            const current = mask.scrollLeft;
+            const edgeThreshold = 2;
+
+            if (direction > 0 && current >= max - edgeThreshold) {
+                mask.scrollTo({ left: 0, behavior: 'smooth' });
+                return;
+            }
+
+            if (direction < 0 && current <= edgeThreshold) {
+                mask.scrollTo({ left: max, behavior: 'smooth' });
+                return;
+            }
+
+            mask.scrollTo({ left: current + direction * step, behavior: 'smooth' });
+        };
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                scrollByStep(-1);
+            }, true);
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                scrollByStep(1);
+            }, true);
+        }
+    }
+
+    initReviewsCarousel();
 });

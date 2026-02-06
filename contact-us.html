@@ -4,9 +4,9 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Contactez-nous | Sophrologie</title>
-  <meta content="Contactez-nous | Sophrologie" property="og:title">
-  <meta content="Contactez-nous | Sophrologie" property="twitter:title">
+  <title>Contactez-nous | Gestalt Thérapie</title>
+  <meta content="Contactez-nous | Gestalt Thérapie" property="og:title">
+  <meta content="Contactez-nous | Gestalt Thérapie" property="twitter:title">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="Webflow" name="generator">
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
@@ -33,7 +33,7 @@
           <div class="header-wrapper">
             <div class="split-content">
               <a href="index.html" class="brand w-nav-brand"><img decoding="async" loading="lazy"
-                  src="images/Olivia/new-logo.png" alt="Sophrologie Logo" class="header-logo"></a>
+                  src="images/Olivia/new-logo.webp" alt="Logo" class="header-logo"></a>
             </div>
             <div class="split-content">
               <nav role="navigation" class="nav-menu w-nav-menu">
@@ -147,7 +147,7 @@
           <div class="get-in-touch-single">
             <div class="get-in-touch-single-inner">
               <h5 class="get-in-touch-single-title">Horaires d'ouverture</h5>
-              <div class="get-in-touch-text">9.h/20h du lundi au vendredi et 9.h/12h le samedi</div>
+              <div class="get-in-touch-text">9&nbsp;h&nbsp;–&nbsp;20&nbsp;h du lundi au vendredi et 9&nbsp;h&nbsp;–&nbsp;12&nbsp;h le samedi</div>
             </div>
           </div>
         </div>
@@ -205,7 +205,7 @@
       <div data-w-id="b4c710d0-837e-1701-de2a-3d9291baa94a" class="get-started-wrapper">
         <div class="get-started-inner">
           <div class="get-started-inner-img-wrap"><img decoding="async" alt=""
-              src="images/Olivia/Nouveau dossier/8b392142-9f98-4074-9e37-d6fa9cc240cd.jpg" loading="lazy"
+              src="images/Olivia/Nouveau dossier/8b392142-9f98-4074-9e37-d6fa9cc240cd.webp" loading="lazy"
               class="get-started-inner-img">
             <div class="get-started-inner-img-shape"></div>
           </div>
@@ -276,7 +276,7 @@
           <div id="w-node-_2e1d171b-22c1-50d5-9e47-e78afa93c9a8-fa93c9a5"
             data-w-id="2e1d171b-22c1-50d5-9e47-e78afa93c9a8" class="footer-left-content">
             <a href="index.html" class="footer-logo-link w-inline-block"><img decoding="async"
-                src="images/Olivia/new-logo.png" loading="lazy" alt="Sophrologie Logo" class="footer-logo"></a>
+                src="images/Olivia/new-logo.webp" loading="lazy" alt="Logo" class="footer-logo"></a>
             <p class="footer-logo-discriptions">Je suis dédiée à vous donner les moyens de vivre votre meilleure vie et
               je suis là pour vous soutenir.</p>
             <div class="footer-logo-media-flex">
@@ -342,6 +342,18 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <!-- Custom Email Script -->
   <script src="js/contact-form.js" type="text/javascript"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const subject = urlParams.get('subject');
+      if (subject) {
+        const subjectInput = document.getElementById('Subject');
+        if (subjectInput) {
+          subjectInput.value = subject;
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>

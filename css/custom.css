@@ -12,6 +12,15 @@
    SESSION CARDS EXPANSION
    ========================================= */
 
+/* Force 16:9 Aspect Ratio for Session Images */
+.sessions-cart-icon-inner,
+.sessions-cart-icon {
+    width: 100%;
+    aspect-ratio: 16 / 9 !important;
+    object-fit: cover !important;
+    height: auto !important;
+}
+
 .session-hidden-content {
     max-height: 0;
     overflow: hidden;
@@ -23,13 +32,20 @@
 
 .slider-left-button.testimonials,
 .slider-right-button.testimonials {
-    display: none !important;
+    display: flex !important;
 }
 
 /* Ensure arrows are on top */
 .slider-left-button, .slider-right-button {
     z-index: 100 !important;
     cursor: pointer !important;
+}
+
+@media screen and (max-width: 767px) {
+    .slider-left-button.testimonials,
+    .slider-right-button.testimonials {
+        display: none !important;
+    }
 }
 
 .session-hidden-content.open {
@@ -131,13 +147,13 @@
    BACKGROUND FOR FOCUSED SESSIONS
    ========================================= */
 .section.focused-sessions {
-    background-color: var(--tacao) !important;
+    background-color: var(--elf-green) !important;
     background-image: none !important;
     padding-bottom: 0 !important; /* Remove bottom padding from main section */
 }
 
 .section.focused-sessions .sessions-wrapper {
-    background-image: url('../images/Hero-Bg.webp');
+    background-image: url('../images/Hero-Bg.webp') !important;
     background-color: var(--spring-wood) !important;
     background-position: 50%;
     background-repeat: no-repeat;
@@ -146,6 +162,47 @@
     padding-top: 40px;
     padding-bottom: 0 !important; /* Remove padding bottom here too */
     margin-bottom: 0 !important;
+}
+
+.section.focused-sessions .sub-title,
+.section.focused-sessions .section-title,
+.section.focused-sessions .section-discriptions {
+    color: var(--white) !important;
+}
+
+.section.focused-sessions .sessions-single,
+.section.focused-sessions .sessions-single-inner {
+    background-color: transparent !important;
+}
+
+.section.focused-sessions .focused-sessions-title-wrapper {
+    padding-bottom: 24px !important;
+    margin-bottom: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+}
+
+.section.focused-sessions .section-flexbox {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.section.focused-sessions .section-details-inner {
+    display: none !important;
+}
+
+.section.focused-sessions h2.section-title,
+.section.focused-sessions .section-title-inner {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Make "Personnalisés." visible and gold */
+.section.focused-sessions .green-title {
+    color: var(--tacao) !important;
+    display: inline-block !important; /* Ensure it renders */
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 /* Ensure the next section starts cleanly */
@@ -270,6 +327,60 @@
 }
 
 /* Responsive adjustments */
+/* =========================================
+   TABLET RESPONSIVENESS (768px - 991px)
+   ========================================= */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .hero-section {
+        min-height: auto;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .herro-flex {
+        display: flex !important;
+        flex-direction: column !important; /* Stack vertically */
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        gap: 40px !important;
+    }
+
+    .hero-title-wrapper {
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    .hero-title {
+        text-align: center !important;
+        margin-bottom: 20px;
+    }
+
+    .best-life-wrapper {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-left: 0 !important;
+        transform: none !important; /* Reset any scaling */
+    }
+    
+    .best-life-flex {
+        margin-bottom: 20px;
+    }
+    
+    .clients-support-wrap {
+        position: static !important; /* Reset absolute/relative mess */
+        margin: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+    
+    .counter-title {
+        text-align: center !important;
+        color: var(--charcoal-grey) !important;
+    }
+}
+
 @media screen and (max-width: 991px) {
     .section.focused-sessions .sessions-grid {
         flex-wrap: wrap !important; /* Allow stacking on smaller screens */
@@ -437,9 +548,13 @@
 }
 
 /* Make icons white */
-.footer-left-content .contact-icon,
-.footer-left-content .footer-logo {
+.footer-left-content .contact-icon {
     filter: brightness(0) invert(1);
+}
+
+/* Make footer logo gold like navbar */
+.footer-left-content .footer-logo {
+    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(987%) hue-rotate(357deg) brightness(96%) contrast(90%);
 }
 
 /* Ensure icons are also white if they are SVGs controlled by color, otherwise text next to them */
@@ -527,7 +642,7 @@
    REDUCE FOCUSED SESSIONS HEIGHT
    ========================================= */
 .section.focused-sessions {
-    padding-top: 60px !important;
+    padding-top: 40px !important;
     padding-bottom: 0px !important; /* NO bottom padding */
     min-height: auto !important;
     height: auto !important;
@@ -535,7 +650,7 @@
 }
 
 .section.focused-sessions .sessions-wrapper {
-    background-image: url('../images/Hero-Bg.webp');
+    background-image: url('../images/Hero-Bg.webp') !important;
     background-color: var(--spring-wood) !important;
     background-position: 50%;
     background-repeat: no-repeat;
@@ -606,14 +721,101 @@
 }
 
 .hero-logo-img {
-    max-width: 300px;
+    max-width: 600px;
     height: auto;
     object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(987%) hue-rotate(357deg) brightness(96%) contrast(90%);
 }
 
 /* =========================================
-   RESPONSIVE FIXES FOR MOBILE
+   DESKTOP HERO OVERRIDES (Double Size & Centering)
    ========================================= */
+@media screen and (min-width: 992px) {
+    /* Center the Hero Section Vertically */
+    .hero-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 85vh; /* Take up most of the screen */
+        position: relative; /* Ensure absolute children stay inside */
+    }
+
+    .hero-main {
+        width: 100%;
+    }
+
+    /* Flex container for Title + Profile */
+    .herro-flex {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 100px !important; /* Space between the two blocks */
+        margin-bottom: 60px; /* Space for the logo below */
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    /* 1. Title Section */
+    .hero-title-wrapper {
+        flex: 1;
+        max-width: 50%;
+        text-align: left;
+    }
+
+    /* 2. Profile Section - ADJUSTED SIZE */
+    .best-life-wrapper {
+        flex: 1;
+        display: flex !important;
+        flex-direction: column !important; /* Stack vertically */
+        align-items: center !important;
+        justify-content: center !important;
+        
+        /* Adjusted size - Increased scale as requested */
+        transform: scale(1.5); 
+        transform-origin: center center; 
+        
+        margin-left: 100px; /* Push more to the right */
+    }
+
+    /* Adjust the text container inside profile wrapper */
+    .clients-support-wrap {
+        width: auto !important;
+        max-width: 400px !important; 
+        margin-left: 0px !important; /* Reset margin since it's centered/below now */
+        margin-top: 30px !important; /* Space between image and text */
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        text-align: center; /* Center the text */
+    }
+    
+    .counter-title-wrap {
+        background: transparent !important;
+        box-shadow: none !important;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .counter-title {
+        text-align: center !important;
+    }
+
+    /* Logo at the bottom */
+    .hero-details-wrapper {
+        display: flex;
+        justify-content: center; /* Center the logo */
+        width: 100%;
+        margin-top: 0;
+        position: absolute;
+        bottom: 50px;
+        left: 0;
+    }
+    
+    .hero-logo-img {
+        max-width: 400px;
+        height: auto;
+    }
+}
 @media screen and (max-width: 991px) {
     /* Fix sessions cards disappearance */
     .sessions-single {
@@ -652,62 +854,138 @@
 
 @media screen and (max-width: 767px) {
     /* Mobile Layout for Hero Section */
+    .hero-section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        height: auto !important;
+        min-height: auto !important;
+    }
+
+    .hero-main {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .herro-flex {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+
+    /* Reset Desktop/Tablet specific margins/transforms */
+    /* .best-life-wrapper removed from here as it's redefined below with order */
+
+    /* 1. Title - Order 1 */
+    .hero-title-wrapper {
+        order: 1;
+        text-align: center;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem !important; /* Smaller title for mobile */
+        text-align: center !important;
+        margin-bottom: 20px;
+        background-color: transparent !important; /* Ensure no background color */
+        display: block; /* Ensure block display to stack correctly */
+    }
+    
+    .hero-title span {
+        background-color: transparent !important; /* Remove background from span */
+    }
+
+    /* 2. Image - Order 2 */
     .best-life-wrapper {
+        order: 2; /* Explicitly order the wrapper, not just inner content */
         flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
-        margin-top: 20px;
-    }
-
-    /* Main Image (Portrait) - Order 1 */
-    .best-life-flex {
-        order: 1;
-        margin-bottom: 20px;
-        opacity: 1 !important;
-        display: flex !important;
-        visibility: visible !important;
-    }
-
-    /* Satisfaction Badge (100%...) - Order 2 (Above Logo) */
-    .clients-support-wrap {
-        order: 2;
-        display: flex !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        margin-left: 0 !important; /* Remove negative margin */
-        margin-bottom: 20px;
-        position: relative !important;
-        z-index: 10;
-        background: transparent !important;
-    }
-
-    /* Ensure inner text is visible */
-    .clients-support-flex,
-    .counter-title-wrap,
-    .counter-title {
-        opacity: 1 !important;
-        visibility: visible !important;
-        color: var(--elf-green) !important; /* Ensure contrast */
-    }
-
-    /* Logo - Order 3 (Below Badge) */
-    .hero-logo-insert {
-        order: 3;
-        margin-left: 0 !important;
         margin-top: 0 !important;
+        margin-left: 0 !important;
+        transform: none !important;
+        display: flex !important; /* Ensure flex display */
+    }
+
+    .best-life-flex {
         margin-bottom: 20px;
+        opacity: 1 !important;
+        display: flex !important;
+        visibility: visible !important;
         width: 100%;
         justify-content: center;
     }
     
-    .hero-logo-img {
-        max-width: 200px; /* Slightly smaller on mobile */
+    .best-life-inner-img {
+        width: 200px !important; /* Ensure image isn't too huge */
+        height: 200px !important;
     }
 
-    /* Ensure testimonials are not hidden on very small screens */
-    .real-voices-slider {
+    /* 3. Text - Order 3 */
+    .clients-support-wrap {
+        order: 3;
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        margin-left: 0 !important; /* Remove negative margin */
+        margin-bottom: 0px;
+        position: relative !important;
+        z-index: 10;
+        background: transparent !important;
+        width: 100%;
+        justify-content: center;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+
+    /* Ensure inner text is visible */
+    .clients-support-flex {
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
+    .counter-title-wrap {
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
+    .counter-title {
+        opacity: 1 !important;
+        visibility: visible !important;
+        color: var(--charcoal-grey) !important; /* Ensure contrast */
+        text-align: center !important;
+        font-size: 1rem !important;
+    }
+
+    /* Fix for Sessions Ciblées Images on Mobile */
+    .sessions-cart-icon-wrapper {
+        width: 100% !important;
         height: auto !important;
-        min-height: 400px;
+        display: block !important;
+        padding-top: 56.25% !important; /* 16:9 Aspect Ratio hack (9/16 = 0.5625) */
+        position: relative !important;
+        overflow: hidden !important;
+    }
+
+    .sessions-cart-icon-inner {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 0 !important; /* Reset conflicting min-height */
+        display: block !important;
+    }
+    
+    .sessions-cart-icon {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        max-width: none !important; /* Ensure image isn't constrained */
     }
 }
 
@@ -721,6 +999,20 @@
 /* Make nav links white so they are visible on dark background */
 .nav-main-link {
     color: var(--white) !important;
+}
+
+/* FIX: Make nav links dark on mobile/tablet when menu is open (white background) */
+@media screen and (max-width: 991px) {
+    .nav-menu {
+        background-color: var(--white) !important;
+    }
+
+    .nav-main-link {
+        color: var(--elf-green) !important;
+        margin-bottom: 15px; /* Add spacing for better touch targets */
+        display: block; /* Ensure they take up space */
+        font-size: 1.2rem; /* Make them readable */
+    }
 }
 
 /* =========================================
@@ -741,6 +1033,13 @@
 .secondary-button {
     background-color: var(--white) !important;
     color: var(--elf-green) !important;
+}
+
+/* Specific override for Navbar CTA to be Gold */
+.header .secondary-button {
+    background-color: #C2A35D !important;
+    color: var(--elf-green) !important;
+    border-color: #C2A35D !important;
 }
 
 .secondary-button .button-text {
@@ -893,28 +1192,49 @@
     padding-bottom: 80px;
 }
 
+.section.real-voices .real-voices-fullbleed {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding-left: clamp(16px, 3vw, 56px);
+    padding-right: clamp(16px, 3vw, 56px);
+    max-width: none !important;
+}
+
+.section.real-voices .real-voices-fullbleed .real-voices-slider-wrapper,
+.section.real-voices .real-voices-fullbleed .real-voices-slider {
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
 /* Reset the slider mask behavior if it was modified before */
 .real-voices .w-slider-mask {
-    /* GRID LAYOUT: The most robust way to force 3 columns ignoring Webflow JS */
-    display: grid !important; 
-    grid-template-columns: 1fr 1fr 1fr !important; /* Exactly 3 equal columns */
-    gap: 30px !important; /* Increased Space between cards */
+    --reviews-gap: 24px;
+    display: flex !important;
+    gap: var(--reviews-gap);
     width: 100% !important;
+    max-width: none !important;
     height: auto !important;
-    overflow: visible !important; /* Allow content to be seen */
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
     transform: none !important; /* Kill Webflow JS transform */
     white-space: normal !important;
+    touch-action: pan-x !important; /* Allow native horizontal scrolling */
     
     /* Centering logic */
-    justify-content: center !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
+    justify-content: flex-start !important;
+    margin: 0 !important;
+    padding: 0 0 16px !important;
 }
 
 /* The Card Style */
 .review-card {
-    background-color: #0f0f0f;
-    border: 1px solid #1f1f1f;
+    background-color: var(--elf-green);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 16px;
     padding: 32px;
     width: 100%; /* Adapts to slide width */
@@ -923,7 +1243,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
     box-sizing: border-box;
     height: 100%; /* Fill slide height */
     min-height: 250px; /* REDUCED: Make cards less tall */
@@ -931,7 +1251,7 @@
 }
 /* Wrapper to add gap without breaking slider width calc */
 .real-voices .w-slide > div {
-   margin: 0 10px; /* Add horizontal spacing inside the slide */
+   margin: 0 !important;
    height: 100%;
 }
 
@@ -950,18 +1270,19 @@
 }
 
 .quote-icon {
-    color: #2a2a2a;
+    color: rgba(255, 255, 255, 0.25);
     font-size: 24px;
 }
 
 .review-text {
-    color: #a0a0a0;
+    color: rgba(255, 255, 255, 0.88);
     font-size: 15px;
     line-height: 1.6;
     margin-bottom: 30px;
     flex-grow: 1;
     font-family: 'Plus Jakarta Sans', sans-serif;
     text-align: left !important; /* Override previous center alignment */
+    overflow-wrap: anywhere;
 }
 
 .user-profile {
@@ -993,7 +1314,7 @@
 
 .user-role {
     font-size: 13px;
-    color: #666;
+    color: rgba(255, 255, 255, 0.72);
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
@@ -1008,11 +1329,18 @@
     padding-right: 0 !important;
 }
 
+.section.real-voices .w-layout-blockcontainer {
+    max-width: 1600px !important;
+    width: 98% !important;
+}
+
 /* Force slides to have a minimum width to ensure landscape/rectangular shape */
 .real-voices .w-slide {
-    width: 100% !important; /* Let Grid handle the width */
-    min-width: 400px !important; /* INCREASED: Make them wider to fill space */
-    max-width: none !important;
+    flex: 0 0 clamp(280px, 82vw, 520px);
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 520px !important;
+    scroll-snap-align: start;
     transform: none !important; /* Kill Webflow JS transform */
     
     /* Reset layout properties */
@@ -1025,9 +1353,48 @@
 }
 
 @media screen and (max-width: 991px) {
-    .real-voices .w-slide {
-        width: 100% !important;
+    .review-card {
+        padding: 22px;
+        border-radius: 14px;
+        min-height: 0;
     }
+
+    .review-text {
+        font-size: 14px;
+        margin-bottom: 18px;
+    }
+
+    .user-avatar {
+        width: 42px;
+        height: 42px;
+    }
+
+    .user-name {
+        font-size: 14px;
+        margin-bottom: 2px;
+    }
+
+    .real-voices .w-slide {
+        max-width: 460px !important;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .real-voices .w-slider-mask {
+        padding: 0 !important;
+        overflow-x: hidden !important;
+        scroll-snap-type: none;
+    }
+
+    .real-voices .w-slide {
+        flex: 1 1 0;
+        max-width: none !important;
+    }
+}
+
+.real-voices .w-slider-mask::-webkit-scrollbar {
+    height: 0;
+    width: 0;
 }
 
 .real-voices .real-voices-slider-flex {
@@ -1058,13 +1425,66 @@
     background-color: #fff;
 }
 
-.session-card-image {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    display: block;
-    max-width: 100%;
+/* =========================================
+   GET STARTED SECTION - WHITE BACKGROUND OVERRIDE
+   ========================================= */
+
+.section.get-started {
+    background-color: var(--white) !important;
+    color: var(--charcoal-grey) !important;
+}
+
+.section.get-started .sub-title {
+    color: var(--elf-green) !important;
+}
+
+.section.get-started .section-title {
+    color: var(--elf-green) !important;
+}
+
+.section.get-started .section-discriptions {
+    color: var(--charcoal-grey) !important;
+}
+
+.section.get-started .ticker-text {
+    color: var(--charcoal-grey) !important;
+}
+
+.section.get-started .ticker-dot {
+    background-color: var(--elf-green) !important;
+}
+
+/* Button adjustments for white background */
+
+/* Primary button (Prendre RDV): Keep it dark (Green) */
+.section.get-started .primary-button {
+    background-color: var(--elf-green) !important;
+    color: var(--white) !important;
+}
+
+/* Secondary button (Discover): Outline Green */
+.section.get-started .secondary-button {
+    background-color: transparent !important;
+    color: var(--elf-green) !important;
+    border: 1px solid var(--elf-green) !important;
+}
+
+.section.get-started .secondary-button .button-text {
+    color: var(--elf-green) !important;
+}
+
+.section.get-started .secondary-button .dutton-playgon {
+    filter: invert(1) brightness(0) !important; /* Black/Dark icon */
+}
+
+/* =========================================
+   FIX HERO TEXT BACKGROUND (GLOBAL OVERRIDE)
+   ========================================= */
+.clients-support-wrap,
+.clients-support-flex,
+.counter-title-wrap,
+.counter-title {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
 }
