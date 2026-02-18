@@ -56,7 +56,7 @@
             // Récupération des valeurs du formulaire
             // Assurez-vous que vos variables de template EmailJS ({{from_name}}, etc.) sont correctes.
             const templateParams = {
-                to_email: 'tomviseur7@gmail.com', // Cette variable doit être utilisée dans le champ "To" de votre Template EmailJS si vous voulez rendre dynamique, sinon configurez-le directement dans EmailJS
+                to_email: 'olivialecaplain@gmail.com', // Cette variable doit être utilisée dans le champ "To" de votre Template EmailJS si vous voulez rendre dynamique, sinon configurez-le directement dans EmailJS
                 from_name: document.getElementById('Name').value + ' ' + document.getElementById('Last-Name').value,
                 from_email: document.getElementById('Email').value,
                 subject: document.getElementById('Subject').value,
