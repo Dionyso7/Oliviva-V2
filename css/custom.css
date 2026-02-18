@@ -529,8 +529,8 @@
    ========================================= */
 
 :root {
-    --elf-green: #00454A; /* Force darker teal everywhere */
-    --tacao: #E3C695; /* Replace Tacao with "Or Lumineux" */
+    --elf-green: #1A6B6E; /* Lighter teal - less intensely green per client feedback */
+    --tacao: #C6A55A; /* Deeper gold tone - "Or Lumineux" */
 }
 
 /* Footer insert color change */
@@ -554,7 +554,7 @@
 
 /* Make footer logo gold like navbar */
 .footer-left-content .footer-logo {
-    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(987%) hue-rotate(357deg) brightness(96%) contrast(90%);
+    filter: brightness(0) saturate(100%) invert(65%) sepia(50%) saturate(600%) hue-rotate(10deg) brightness(95%) contrast(85%);
 }
 
 /* Ensure icons are also white if they are SVGs controlled by color, otherwise text next to them */
@@ -724,7 +724,7 @@
     max-width: 600px;
     height: auto;
     object-fit: contain;
-    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(987%) hue-rotate(357deg) brightness(96%) contrast(90%);
+    filter: brightness(0) saturate(100%) invert(65%) sepia(50%) saturate(600%) hue-rotate(10deg) brightness(95%) contrast(85%);
 }
 
 /* =========================================
@@ -1037,9 +1037,9 @@
 
 /* Specific override for Navbar CTA to be Gold */
 .header .secondary-button {
-    background-color: #C2A35D !important;
-    color: var(--elf-green) !important;
-    border-color: #C2A35D !important;
+    background-color: #B8943F !important;
+    color: var(--white) !important;
+    border-color: #B8943F !important;
 }
 
 .secondary-button .button-text {
@@ -1056,7 +1056,7 @@
    ========================================= */
 /* Apply gold-like filter to the original logo in navbar */
 .header-logo {
-    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(987%) hue-rotate(357deg) brightness(96%) contrast(90%);
+    filter: brightness(0) saturate(100%) invert(65%) sepia(50%) saturate(600%) hue-rotate(10deg) brightness(95%) contrast(85%);
 }
 
 /* =========================================

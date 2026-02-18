@@ -6,13 +6,13 @@
     // -------------------------------------------------------------------------
 
     // Votre "Public Key" (trouvable dans Account > API Keys)
-    const PUBLIC_KEY = 'VOTRE_PUBLIC_KEY_ICI';
+    const PUBLIC_KEY = '3ibCpKCKqlYNIoDmk';
 
     // Votre "Service ID" (créez un service "Gmail" dans EmailJS)
-    const SERVICE_ID = 'VOTRE_SERVICE_ID_ICI';
+    const SERVICE_ID = 'service_3y26lk2';
 
     // Votre "Template ID" (créez un template d'email)
-    const TEMPLATE_ID = 'VOTRE_TEMPLATE_ID_ICI';
+    const TEMPLATE_ID = 'template_maqplq9';
 
     // -------------------------------------------------------------------------
 
@@ -39,6 +39,13 @@
 
         form.addEventListener('submit', function (event) {
             event.preventDefault();
+            event.stopImmediatePropagation(); // Empêche Webflow de gérer le formulaire
+
+            // Cacher les messages précédents
+            const successMessage = form.parentElement.querySelector('.w-form-done');
+            const errorMessage = form.parentElement.querySelector('.w-form-fail');
+            if (successMessage) successMessage.style.display = 'none';
+            if (errorMessage) errorMessage.style.display = 'none';
 
             // Indicateur de chargement sur le bouton
             const submitBtn = form.querySelector('input[type="submit"]');
